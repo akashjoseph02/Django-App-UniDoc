@@ -1,0 +1,78 @@
+/* hero background image */
+/* html { 
+    background: url(https://img.freepik.com/free-photo/design-space-paper-textured-background_53876-41739.jpg?w=2000) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /* background-color: rgba(2, 128, 128, 0.5);
+  background-blend-mode: multiply; */
+.bgimage2 {
+    height:100vh;
+    background: url('/static/img/docimage.jpg');
+    background-size:cover;
+    position: relative;
+    opacity:0.8;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: multiply;}
+
+.bgimage {
+    height:300px;
+    background-color: rgb(51, 85, 87);
+    background-size:auto;
+    background-repeat: no-repeat;
+    position:relative;
+}
+/* text css above hero image*/
+.hero_title {
+    font-size: 4.5rem;
+    text-align: center;
+}
+.hero_desc {
+    font-size: 2rem;
+    text-align: center;
+}
+.hero-text {
+    text-align:left;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.bgimage1 {
+    height: 125px;;
+    background-color: rgb(98, 94, 94);
+    background-size:cover;
+    position:relative;
+    border-radius: 15px;
+}
+
+.transbox {
+    margin: 30px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.6;
+  }
+
+.transbox p {
+    margin: 5%;
+    font-weight: bold;
+    color: #000000;
+  }
+
+  .ul1{display: table; 
+  margin: 0 auto;
+  text-align: left;}
+
+
+
+
+
+  .form-group .btn-form{
+    background: #11dbcf;
+    border: 2px solid #11dbcf;
+    text-decoration: none;
+    color:#000;
+   }

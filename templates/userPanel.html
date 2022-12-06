@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserPanel</title>
+</head>
+<body background="{%static 'img/1211.jpg' %}" style="background-size: cover; background-color: rgba(117, 63, 8, 0.5); background-blend-mode: multiply;">
+
+    {% if user.is_authenticated %}
+<h1 class=" ms-5 mt-5 " style="font-size: 3.5rem;"><center><u>User Panel</u></center></h1>
+
+<center>
+<div class="shadow p-4 mb-5 bg-body bg-body rounded text-black  m-5 " style="padding-top: 10px;">
+    <h2 class="" style="font-size: 2rem;">User Info:</h2>
+    <ul class="list-group fs-4 mt-3">
+            <li class="list-group mt-2">Username: {{ user.username }}</li>
+    </ul>
+</div>
+</center>
+
+<!--Appointment Loop-->
+<center>
+{% if appointments.count > 0 %}
+<div class="mt-5 " style="padding-top: 15px;">
+    <h1 class=" ms-5">Appointments:</h1>
+    <div class="shadow p-4 mb-3 bg-body bg-body rounded text-black  m-5">
+        {% for appointment in appointments %}
+        <div class="list-group fs-4 border p-3 mb-3">
+            <p class="list-group mt-2">Day: {{ appointment.day }}</p>
+            <p class="list-group mt-2">Time: {{ appointment.time }}</p>
+            <p class="list-group mt-2">Service: {{ appointment.service }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+</center>
+
+{% else %}
+
+<div class="shadow p-4 mb-5 bg-body bg-body rounded text-black  m-5">
+    <h1 class="p-2  ms-3">First Sign in!</h1>
+    <a href="{% url 'login' %}" class="btn btn-primary text-white">Sign in</a>
+</div>
+
+{% endif %}
+    
+</body>
+</html>

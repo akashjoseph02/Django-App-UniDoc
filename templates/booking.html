@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>online Booking</title>
+</head>
+<body background="{%static 'img/image2.jpg' %}" style="background-size: cover; background-color: rgba(117, 63, 8, 0.5); background-blend-mode: multiply;">
+
+    {% if user.is_authenticated %}
+<h1 class="text-center  mt-3" style="font-size: 3.5rem;"><center><u>Online Booking</u>  </center></h1>
+
+<div class="shadow p-4 mb-5 bg-body bg-body rounded text-black  m-5 ">
+    <form method="post" action="{% url 'miniapp:booking' %}" class="me-2 ms-2" required>
+        {% csrf_token %}
+
+        <div style="padding-top: 5px;"><center>
+
+            <!--input service-->
+        <div>
+            <h3 class="" style="font-size: 2rem;">Select Service:</h3>
+            <select class="form-select fs-3" name="service" style="width: 200px; margin-bottom:20px ;">
+                <option value="Doctor care" style="font-size: 1rem;">Doctor care</option>
+                <option value="Nursing care" style="font-size: 1rem;">Nursing care</option> 
+            </select>
+        </div>
+            <!--input day-->
+            <div class="mt-3">
+                <h3 class="" style="font-size: 2rem;">Select Day:</h3>
+                <select class="form-select fs-3" name="day" style="width: 200px; margin-bottom:20px;">
+                    {% for validateWeekday in validateWeekdays %}
+                    <option value="{{validateWeekday}}" style="font-size: 1rem;">{{validateWeekday}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="mt-3">
+                <h3 class="" style="font-size: 2rem;">Select Time:</h3>
+                <select class="form-select fs-3" name="times" style="width: 200px; margin: bottom 20px;">
+                    {% for times in times %}
+                    <option value="{{times}}" style="font-size: 1rem;">{{times}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+
+        </div></center>
+            <br/><center>
+            <button type="submit" class="btn btn-primary text-white" style="margin-top: 50px; color: black;">Continue</button></center>
+        </div>
+    </form>
+</div>
+
+{% else %}
+
+<div class="shadow p-4 mb-5 bg-body bg-body rounded text-black  m-5 ">
+    <h1 class="p-2  me-3">You Are Not Signed in!</h1>
+    <a href="{% url 'miniapp:login' %}" class="btn btn-primary shadow text-center">Sign in</a>
+</div>
+
+{% endif %}
+    
+</body>
+</html>
